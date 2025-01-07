@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <Graph>
-	<Node Id="entrance" Type="graph-entrance"/>
+	<Node Id="entrance" Type="graph-entrance">
+		<Label>Gannon's Castle</Label>
+	</Node>
 
 	<Node Id="boss-key" Type="graph-bosskey">
+		<Label>Boss Key</Label>
 		<Parent>entrance</Parent>
 	</Node>
 
 	<Node Id="boss-door" Type="graph-bossdoor">
+		<Label>Boss Door</Label>
 		<Parent>entrance</Parent>
 	</Node>
 
 	<Node Id="boss" Type="graph-boss">
-		<Parent>boss-door</Parent>
 		<Label>Gannon</Label>
+		<Parent>boss-door</Parent>
 	</Node>
 </Graph>

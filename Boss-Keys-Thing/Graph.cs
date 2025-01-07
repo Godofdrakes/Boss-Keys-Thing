@@ -2,8 +2,8 @@
 
 namespace BossKeysThing;
 
-[XmlRoot]
+[XmlRoot("Graph")]
 public class Graph
 {
-	[XmlElement] public List<Node> Nodes { get; } = [];
+	[XmlElement("Node")] public List<Node> Nodes { get; } = [];
 }

@@ -10,7 +10,13 @@
 	xmlns:viewModels="clr-namespace:BossKeysThing.WPF.ViewModels"
 	mc:Ignorable="d"
 	d:DesignHeight="300" d:DesignWidth="300">
-	<Grid>
 
-	</Grid>
+	<ListView x:Name="ListView">
+		<ListView.ItemTemplate>
+			<DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
+				<TextBlock Text="{Binding DisplayName}" />
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
+
 </reactiveUi:ReactiveUserControl>

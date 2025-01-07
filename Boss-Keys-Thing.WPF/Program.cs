@@ -30,7 +30,7 @@ public static class Program
 
 	private static IHostBuilder ConfigureSplat(this IHostBuilder hostBuilder)
 	{
-		return hostBuilder.ConfigureServices((context, collection) =>
+		return hostBuilder.ConfigureServices(collection =>
 		{
 			collection.UseMicrosoftDependencyResolver();
 
