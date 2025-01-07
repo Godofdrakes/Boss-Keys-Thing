@@ -1,8 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 
-namespace Boss_Keys_Thing.WPF;
+namespace BossKeysThing.WPF;
 
 /// <summary>
 /// Interaction logic for App.xaml

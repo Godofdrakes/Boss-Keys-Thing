@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Graph>
+	<Node Id="entrance" Type="graph-entrance"/>
+
+	<Node Id="boss-key" Type="graph-bosskey">
+		<Parent>entrance</Parent>
+	</Node>
+
+	<Node Id="boss-door" Type="graph-bossdoor">
+		<Parent>entrance</Parent>
+	</Node>
+
+	<Node Id="boss" Type="graph-boss">
+		<Parent>boss-door</Parent>
+		<Label>Gannon</Label>
+	</Node>
+</Graph>
