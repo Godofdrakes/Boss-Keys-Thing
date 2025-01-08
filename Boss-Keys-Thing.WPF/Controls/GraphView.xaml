@@ -11,12 +11,13 @@
 	mc:Ignorable="d"
 	d:DesignHeight="300" d:DesignWidth="300">
 
-	<ListView x:Name="ListView">
-		<ListView.ItemTemplate>
-			<DataTemplate DataType="{x:Type viewModels:NodeViewModel}">
-				<TextBlock Text="{Binding DisplayName}" />
-			</DataTemplate>
-		</ListView.ItemTemplate>
-	</ListView>
+	<TreeView x:Name="TreeView">
+		<TreeView.ItemTemplate>
+			<HierarchicalDataTemplate DataType="{x:Type viewModels:NodeViewModel}"
+				ItemsSource="{Binding Children}">
+				<TreeViewItem Header="{Binding DisplayName}" />
+			</HierarchicalDataTemplate>
+		</TreeView.ItemTemplate>
+	</TreeView>
 
 </reactiveUi:ReactiveUserControl>

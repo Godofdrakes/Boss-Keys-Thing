@@ -23,6 +23,7 @@ public class GraphViewModel : ReactiveObject
 	public GraphViewModel()
 	{
 		_nodeSource.Connect()
+			.Where(node => string.IsNullOrEmpty(node.Parent))
 			.Bind(out _children)
 			.Subscribe();
 
@@ -47,6 +48,24 @@ public class GraphViewModel : ReactiveObject
 		}
 
 		return this;
+	}
+
+	public Graph SaveModel()
+	{
+		var graphModel = new Graph();
+
+		foreach (var node in _nodeSource.Items)
+		{
+			graphModel.Nodes.Add(new Node()
+			{
+				Id = node.Id,
+				Type = node.Type,
+				Parent = node.Parent,
+				Label = node.Label,
+			});
+		}
+
+		return graphModel;
 	}
 
 	public NodeViewModel CreateNode(string id, string type)

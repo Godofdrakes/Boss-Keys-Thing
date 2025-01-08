@@ -1,4 +1,6 @@
-﻿using System.Reactive.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Reactive.Linq;
+using DynamicData;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -16,6 +18,10 @@ public class NodeViewModel : ReactiveObject
 
 	[ObservableAsProperty] public string DisplayName { get; } = string.Empty;
 
+	public ReadOnlyObservableCollection<NodeViewModel> Children => _children;
+
+	private readonly ReadOnlyObservableCollection<NodeViewModel> _children;
+
 	private readonly GraphViewModel _graph;
 
 	public NodeViewModel(GraphViewModel graph, string id, string type)
@@ -31,6 +37,10 @@ public class NodeViewModel : ReactiveObject
 		this.WhenAnyValue(x => x.Id, x => x.Label)
 			.Select(GetDisplayName)
 			.ToPropertyEx(this, x => x.DisplayName);
+
+		graph.FindChildren(id)
+			.Bind(out _children)
+			.Subscribe();
 	}
 
 	private static string GetDisplayName((string id, string? label) tuple)
